@@ -26,6 +26,8 @@
 //declares a variable for motor speed. This can be changed later based on controller inputs.
 int speed = 255;
 
+int r = 1;
+
 void setup() {
   //sets all of the needed pins as outputs
   pinMode(enA1,OUTPUT);
@@ -48,9 +50,15 @@ void setup() {
 
   pinMode(inA5,OUTPUT);
   pinMode(inB5,OUTPUT);
+  
+  Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  if(Serial.available()) {
+    r = Serial.read() - '0';
+    // print out the value read from serial
+    Serial.println(r);
+  }
 }
 
