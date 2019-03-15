@@ -56,9 +56,47 @@ void setup() {
 
 void loop() {
   if(Serial.available()) {
-    r = Serial.read() - '0';
-    // print out the value read from serial
-    Serial.println(r);
+    if(Serial.read() == 0){
+      //forward
+    }
+    if(Serial.read() == 1){
+      //backward
+    }
+    if(Serial.read() == 2){
+      //translate left
+    }
+    if(Serial.read() == 3){
+      //translate right
+    }
+    if(Serial.read() == 4){
+      //rotate clockwise
+    }
+    if(Serial.read() == 5){
+      //rotate counterclockwise
+    }
+    if(Serial.read() == 6){
+      //up
+    }
+    if(Serial.read() == 7){
+      //down
+    }
+    if(Serial.read() == 8){
+      //nuetral/motors off
+    }
+  }
+  else{
+    Serial.print("No serial communications detected");
   }
 }
 
+void motorForward(int speed, int enApin, int inApin, int inBpin){
+  analogWrite(enApin, speed);
+  digitalWrite(inApin, HIGH);
+  digitalWrite(inBpin, LOW);
+}
+
+void motorReverse(int speed, int enApin, int inApin, int inBpin){
+  analogWrite(enApin, speed);
+  digitalWrite(inApin, LOW);
+  digitalWrite(inBpin, HIGH);
+}
