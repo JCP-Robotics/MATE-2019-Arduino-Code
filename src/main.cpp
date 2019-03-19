@@ -99,14 +99,14 @@ void loop() {
   }
 }
 
-void motorForward(int speed, int enApin, int inApin, int inBpin){
-  analogWrite(enApin, speed);
-  digitalWrite(inApin, HIGH);
-  digitalWrite(inBpin, LOW);
+void motorForward(int speed, int speedPin, int pinA, int pinB){
+  analogWrite(speedPin, speed);
+  digitalWrite(pinA, HIGH);
+  digitalWrite(pinB, LOW);
 }
 
-void motorReverse(int speed, int enApin, int inApin, int inBpin){
-  analogWrite(enApin, speed);
-  digitalWrite(inApin, LOW);
-  digitalWrite(inBpin, HIGH);
+void motorReverse(int speed, int speedPin, int pinA, int pinB){
+  analogWrite(speedPin, speed);
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinB, HIGH);
 }
